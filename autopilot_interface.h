@@ -158,6 +158,7 @@ struct Time_Stamps
     uint64_t gps_raw_int;
     uint64_t rc_channels_raw;
     uint64_t mavlink_global_position_int_cov;
+    uint64_t mavlink_camera_information;
 
 	void
 	reset_timestamps()
@@ -175,6 +176,7 @@ struct Time_Stamps
         gps_raw_int = 0;
         rc_channels_raw = 0;
         mavlink_global_position_int_cov = 0;
+        mavlink_camera_information = 0;
 	}
 
 };
@@ -222,6 +224,8 @@ struct Mavlink_Messages {
     mavlink_rc_channels_raw_t  rc_channels_raw;
 
     mavlink_global_position_int_cov_t mavlink_global_position_int_cov;
+
+    mavlink_camera_information_t  mavlink_camera_information;
 
 	// System Parameters?
 
@@ -273,6 +277,7 @@ public:
 	int autopilot_id;
 	int companion_id;
     int mavlink_global_position_int_cov;
+    int mavlink_camera_information;
 
 
 	Mavlink_Messages current_messages;

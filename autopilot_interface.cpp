@@ -288,6 +288,13 @@ read_messages()
                     break;
                 }
 
+                case MAVLINK_MSG_ID_CAMERA_INFORMATION: {
+                    mavlink_msg_camera_information_decode(&message, &(current_messages.mavlink_camera_information));
+                    current_messages.time_stamps.mavlink_camera_information = get_time_usec();
+                    this_timestamps.mavlink_camera_information = current_messages.time_stamps.mavlink_camera_information;
+                    break;
+                }
+
 				case MAVLINK_MSG_ID_BATTERY_STATUS:
 				{
 					//printf("MAVLINK_MSG_ID_BATTERY_STATUS\n");
@@ -674,6 +681,9 @@ start()
 
     mavlink_global_position_int_cov = current_messages.mavlink_global_position_int_cov.lat;
     printf("GOT LAT: %i\n", mavlink_global_position_int_cov);
+    printf("\n");
+
+    printf("GOT CAMERA MODEL NAME: %s\n", current_messages.mavlink_camera_information.model_name);
     printf("\n");
 
 
