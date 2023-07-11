@@ -683,6 +683,8 @@ start()
     printf("GOT LAT: %i\n", mavlink_global_position_int_cov);
     printf("\n");
 
+    printf("WAITING FOR CAMERA INFO");
+
     printf("GOT CAMERA MODEL NAME: %s\n", current_messages.mavlink_camera_information.model_name);
     printf("\n");
 
